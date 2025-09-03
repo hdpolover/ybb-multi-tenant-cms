@@ -1,13 +1,10 @@
-/vendor/
-/node_modules/
+/.phpunit.cache
+/node_modules
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
-/storage/logs/*.log
-/storage/framework/cache/data/*
-/storage/framework/sessions/*
-/storage/framework/testing/*
-/storage/framework/views/*
+/vendor
 .env
 .env.backup
 .env.production
@@ -20,31 +17,3 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-.DS_Store
-Thumbs.db
-
-# Database files
-/database/database.sqlite
-
-# Build and cache files
-/bootstrap/cache/*.php
-/storage/app/*
-!/storage/app/.gitkeep
-/storage/framework/cache/*
-!/storage/framework/cache/.gitkeep
-/storage/framework/sessions/*
-!/storage/framework/sessions/.gitkeep
-/storage/framework/testing/*
-!/storage/framework/testing/.gitkeep
-/storage/framework/views/*
-!/storage/framework/views/.gitkeep
-/storage/logs/*
-!/storage/logs/.gitkeep
-
-# Node modules and build files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-/public/mix-manifest.json
-/public/js/app.js
-/public/css/app.css

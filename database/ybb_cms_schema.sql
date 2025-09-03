@@ -694,10 +694,18 @@ ALTER TABLE `pt_job` ADD INDEX `pt_job_salary_range_index` (`min_salary`, `max_s
 ALTER TABLE `pt_job` ADD INDEX `pt_job_location_remote_index` (`country_code`, `workplace_type`);
 
 -- Optimize analytics queries
-ALTER TABLE `analytics_events` ADD INDEX `analytics_events_date_type_index` (DATE(`created_at`), `event_type`);
-ALTER TABLE `ad_impressions` ADD INDEX `ad_impressions_date_index` (DATE(`created_at`));
-ALTER TABLE `ad_clicks` ADD INDEX `ad_clicks_date_index` (DATE(`created_at`));
+ALTER TABLE `analytics_events`
+  ADD COLUMN `created_date` DATE GENERATED ALWAYS AS (DATE(`created_at`)) STORED,
+  ADD INDEX `analytics_events_date_type_index` (`created_date`, `event_type`);
 
+ALTER TABLE `ad_impressions`
+  ADD COLUMN `created_date` DATE GENERATED ALWAYS AS (DATE(`created_at`)) STORED,
+  ADD INDEX `ad_impressions_date_index` (`created_date`);
+
+ALTER TABLE `ad_clicks`
+  ADD COLUMN `created_date` DATE GENERATED ALWAYS AS (DATE(`created_at`)) STORED,
+  ADD INDEX `ad_clicks_date_index` (`created_date`);
+  
 -- ==========================================
 -- NOTES
 -- ==========================================
